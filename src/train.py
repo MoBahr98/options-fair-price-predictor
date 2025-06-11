@@ -37,7 +37,7 @@ def train_model(data_dir, model_path, scaler_path):
     dummy_model.fit(X, y_shuffled)
     y_dummy_pred = dummy_model.predict(X)
     r2_dummy = r2_score(y_shuffled, y_dummy_pred)
-    print(f"🎲 R² with shuffled labels (should be near 0): {r2_dummy:.4f}")
+    print(f"R² with shuffled labels (should be near 0): {r2_dummy:.4f}")
     if r2_dummy > 0.2:
         print("Model may be overfitting or data leakage is occurring!")
 
@@ -57,3 +57,16 @@ def train_model(data_dir, model_path, scaler_path):
     joblib.dump(model, model_path)
     joblib.dump(scaler, scaler_path)
     print("Model and scaler saved.")
+
+    # Visualize predictions vs actual values
+    import matplotlib.pyplot as plt
+
+    plt.figure(figsize=(8, 6))
+    plt.scatter(y, y_pred, alpha=0.3)
+    plt.xlabel("Actual Mark Price")
+    plt.ylabel("Predicted Mark Price")
+    plt.title("Actual vs Predicted Mark Prices")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
