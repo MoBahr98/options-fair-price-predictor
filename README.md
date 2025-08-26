@@ -59,9 +59,3 @@ This project uses the Kaggle dataset: [S&P 500 Options (SPY) Implied Volatility 
 
 - Flask API for serving the model via REST
 - React-based Web UI 
-
----
-
-## License
-
-This project is licensed under the MIT License. You are free to use, modify, and distribute it as permitted under this license.
